@@ -19,28 +19,6 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	
-	
-	
-	
-	@RequestMapping("/notice/noticeSelect")
-	public String noticeSelect() {
-		
-		return "notice/noticeSelect"; //forwarding할 루트와 확장자를 제외한jsp 주소
-	}
-	
-	@RequestMapping("/notice/noticeWrite")
-	public String noticeWrite() {
-		
-		return "notice/noticeWrite";
-	}
-	
-	@RequestMapping("/notice/noticeList")
-	public String noticeList() {
-		
-		return "notice/noticeList";
-	}
-	
 	@RequestMapping("/test")
 	public String test() {
 		

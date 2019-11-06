@@ -48,10 +48,10 @@
 						class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
 				<li><a
-					href="${pageContext.request.contextPath}/member/memberJoinForm.jsp"><span
+					href="${pageContext.request.contextPath}/member/memberJoin"><span
 						class="glyphicon glyphicon-user"></span> Sign up</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/member/memberLoginForm.jsp"><span
+					href="${pageContext.request.contextPath}/member/memberLogin"><span
 						class="glyphicon glyphicon-log-in"></span> Login</a></li>
 
 			</ul>
