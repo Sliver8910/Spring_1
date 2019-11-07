@@ -80,25 +80,7 @@ public class NoticeDAO {
 	//전체 리스트
 	public List<NoticeDTO> noticeList()	throws Exception{
 		ArrayList<NoticeDTO> ar = new ArrayList<NoticeDTO>();
-		Connection con = dataSource.getConnection();
-		String sql = "select * from notice order by num desc";
-		PreparedStatement st = con.prepareStatement(sql);
-		ResultSet rs = st.executeQuery();
-		
-		while(rs.next()) {
-			NoticeDTO noticeDTO = new NoticeDTO();
-			noticeDTO.setNum(rs.getInt("num"));
-			noticeDTO.setTitle(rs.getString("title"));
-			noticeDTO.setWriter(rs.getString("writer"));
-			//noticeDTO.setContents(rs.getString("contents"));
-			noticeDTO.setReg_date(rs.getDate("reg_date"));
-			noticeDTO.setHit(rs.getInt("hit"));
-			ar.add(noticeDTO);
-			}
-		
-		rs.close();
-		st.close();
-		con.close();
+	
 		return ar;
 	}
 }
