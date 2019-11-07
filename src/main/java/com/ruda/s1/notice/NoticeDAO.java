@@ -6,8 +6,12 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
 import com.ruda.util.DBConnector;
 
+@Repository
 public class NoticeDAO {
 	
 	//글수정
