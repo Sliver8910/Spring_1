@@ -2,6 +2,7 @@ package com.ruda.s1;
 
 import java.util.List;
 
+import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,7 @@ import com.ruda.s1.notice.NoticeService;
 @Controller
 @RequestMapping("/notice/**") //경로 미리 선언해서 /notice/이하 경로만 맵핑하면 됨
 public class NoticeController {
+	@Inject
 	private NoticeService noticeservice;
 	public NoticeController() {
 		noticeservice = new NoticeService();

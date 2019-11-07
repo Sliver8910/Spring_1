@@ -6,11 +6,12 @@ public class NoticeService {
 	
 	private NoticeDAO noticeDAO;
 	
-	public NoticeService() {
-		this.noticeDAO = new NoticeDAO();
-		// TODO Auto-generated constructor stub
-	}
 	
+	
+	public void setNoticeDAO(NoticeDAO noticeDAO) {
+		this.noticeDAO = noticeDAO;
+	}
+
 	public List<NoticeDTO> noticeList() throws Exception{
 		List<NoticeDTO> ar = noticeDAO.noticeList();
 		return ar;
