@@ -23,6 +23,7 @@
 	
 	
 	<context:component-scan base-package="com.ruda.s1" />
+	<context:component-scan base-package="com.ruda.notice" />
 	
 	
 	

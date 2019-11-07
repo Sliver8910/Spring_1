@@ -1,4 +1,4 @@
-package com.ruda.s1.notice;
+package com.ruda.notice;
 
 import java.sql.Date;
 

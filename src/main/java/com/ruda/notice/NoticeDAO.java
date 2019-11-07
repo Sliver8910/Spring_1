@@ -1,4 +1,4 @@
-package com.ruda.s1.notice;
+package com.ruda.notice;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,14 +6,22 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ruda.util.DBConnector;
+import javax.inject.Inject;
+import javax.sql.DataSource;
 
+import org.springframework.stereotype.Repository;
+
+
+
+@Repository
 public class NoticeDAO {
+	@Inject
+	private DataSource dataSource;
 	
 	//글수정
 	public int noticeUpdate(NoticeDTO noticeDTO)throws Exception{
 		int result = 0;
-		Connection con = DBConnector.getConnect();
+		Connection con = dataSource.getConnection();
 		String sql = "update notice set title=?, writer=?, contents=? where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, noticeDTO.getTitle());
@@ -31,7 +39,7 @@ public class NoticeDAO {
 	//글쓰기
 	public int noticeWrite(NoticeDTO noticeDTO) throws Exception{
 		int result = 0;
-		Connection con = DBConnector.getConnect();
+		Connection con = dataSource.getConnection();
 		String sql = "insert into notice values(board_seq.nextval, ?, ?, ?, sysdate,0 )";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setString(1, noticeDTO.getTitle());
@@ -49,7 +57,7 @@ public class NoticeDAO {
 	
 	public NoticeDTO noticeSelect(int num) throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();
-		Connection con = DBConnector.getConnect();
+		Connection con = dataSource.getConnection();
 		String sql = "select * from notice where num=?";
 		PreparedStatement st = con.prepareStatement(sql);
 		st.setInt(1, num);
@@ -72,7 +80,7 @@ public class NoticeDAO {
 	//전체 리스트
 	public List<NoticeDTO> noticeList()	throws Exception{
 		ArrayList<NoticeDTO> ar = new ArrayList<NoticeDTO>();
-		Connection con = DBConnector.getConnect();
+		Connection con = dataSource.getConnection();
 		String sql = "select * from notice order by num desc";
 		PreparedStatement st = con.prepareStatement(sql);
 		ResultSet rs = st.executeQuery();
